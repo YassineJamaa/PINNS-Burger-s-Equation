@@ -12,7 +12,7 @@ $$
 $$
 
 where:
-- $ \u(x, t) \ $ represents the solution of the PDE,
+- $ u(x, t) $ represents the solution of the PDE,
 - $\ \nu \$ is the viscosity parameter.
 
 In this project, the equation is solved using a **Physics-Informed Neural Network** by incorporating the equation's constraints into the loss function. The model takes as input the spatial and temporal coordinates \((x, t)\) and outputs the solution \( u(x, t) \).
