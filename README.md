@@ -12,15 +12,15 @@ $$
 $$
 
 where:
-- \( u(x, t) \) represents the solution of the PDE,
-- \( \nu \) is the viscosity parameter.
+- $u(x, t)$ represents the solution of the PDE,
+- $\nu$ is the viscosity parameter.
 
-In this project, the equation is solved using a **Physics-Informed Neural Network** by incorporating the equation's constraints into the loss function. The model takes as input the spatial and temporal coordinates \((x, t)\) and outputs the solution \( u(x, t) \).
+In this project, the equation is solved using a **Physics-Informed Neural Network** by incorporating the equation's constraints into the loss function. The model takes as input the spatial and temporal coordinates $(x, t)$ and outputs the solution $u(x, t)$.
 
 ## Loss Function and Backpropagation
-The custom loss function used in this project is designed to satisfy both the initial and boundary conditions as well as the governing physics of the Burgers' equation. The **data loss** ensures that the predicted solution adheres to the initial and boundary conditions of the PDE. This is computed as the mean squared error (MSE) between the network's prediction and the known values at \( t=0 \) (initial condition) and at the boundaries \( x=-1 \) and \( x=1 \).
+The custom loss function used in this project is designed to satisfy both the initial and boundary conditions as well as the governing physics of the Burgers' equation. The **data loss** ensures that the predicted solution adheres to the initial and boundary conditions of the PDE. This is computed as the mean squared error (MSE) between the network's prediction and the known values at $t=0$ (initial condition) and at the boundaries $x=-1$ and $x=1$.
 
-The **physics loss** is derived from the residual of the Burgers' equation itself. During backpropagation, the network calculates the first and second derivatives of its predictions with respect to the input coordinates \((x, t)\) using **automatic differentiation**. The loss is then computed as the MSE between the left-hand side (LHS) and right-hand side (RHS) of the equation:
+The **physics loss** is derived from the residual of the Burgers' equation itself. During backpropagation, the network calculates the first and second derivatives of its predictions with respect to the input coordinates $(x, t)$ using **automatic differentiation**. The loss is then computed as the MSE between the left-hand side (LHS) and right-hand side (RHS) of the equation:
 
 \[
 \text{loss\_pde} = \text{MSE} \left( \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x}, \, \nu \frac{\partial^2 u}{\partial x^2} \right)
