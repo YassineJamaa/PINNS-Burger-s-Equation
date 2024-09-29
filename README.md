@@ -29,7 +29,7 @@ $$\text{Loss}_{\text{pde}} = \text{MSE} \left( \frac{\partial u}{\partial t} + u
 The overall loss function is defined as the sum of the **initial condition loss** and the **PDE loss**:
 
 
-$$\text{Loss} = \text{Loss}_{\text{data}} +++ \text{Loss}_{\text{data}}$$
+$$\text{Loss} = (\text{Loss}_{\text{data}}) + (\text{Loss}_{\text{data}})$$
 
 
 
