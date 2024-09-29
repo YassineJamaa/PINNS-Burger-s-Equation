@@ -26,6 +26,7 @@ $$
 \text{loss\_pde} = \text{MSE} \left( \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x}, \, \nu \frac{\partial^2 u}{\partial x^2} \right)
 $$
 
+
 The overall loss function is defined as the sum of the **initial condition loss** and the **PDE loss**:
 
 \[
