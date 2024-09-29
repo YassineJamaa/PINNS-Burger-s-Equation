@@ -7,9 +7,9 @@ This project explores the application of **Physics-Informed Neural Networks (PIN
 ## Problem Statement
 The Burgers' equation is defined as:
 
-\[
+$$
 \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} = \nu \frac{\partial^2 u}{\partial x^2}
-\]
+$$
 
 where:
 - \( u(x, t) \) represents the solution of the PDE,
