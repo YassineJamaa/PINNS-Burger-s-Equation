@@ -1,4 +1,3 @@
-
 # Physics-Informed Neural Network for Solving the Burgers' Equation
 
 ## Project Overview
@@ -12,7 +11,7 @@ $$
 $$
 
 where:
-- $ \ u(x, t) \$ represents the solution of the PDE,
+- \( u(x, t) \) represents the solution of the PDE,
 - \( \nu \) is the viscosity parameter.
 
 In this project, the equation is solved using a **Physics-Informed Neural Network** by incorporating the equation's constraints into the loss function. The model takes as input the spatial and temporal coordinates \((x, t)\) and outputs the solution \( u(x, t) \).
@@ -22,15 +21,15 @@ The custom loss function used in this project is designed to satisfy both the in
 
 The **physics loss** is derived from the residual of the Burgers' equation itself. During backpropagation, the network calculates the first and second derivatives of its predictions with respect to the input coordinates \((x, t)\) using **automatic differentiation**. The loss is then computed as the MSE between the left-hand side (LHS) and right-hand side (RHS) of the equation:
 
-\[
+$$
 \text{loss\_pde} = \text{MSE} \left( \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x}, \, \nu \frac{\partial^2 u}{\partial x^2} \right)
-\]
+$$
 
 The overall loss function is defined as the sum of the **initial condition loss** and the **PDE loss**:
 
-\[
+$$
 \text{loss} = \text{loss\_initial\_condition} + \text{loss\_pde}
-\]
+$$
 
 This ensures that the network not only fits the data but also respects the physical law encoded in the PDE. The initial condition loss is calculated as the MSE between the model's prediction and the initial state \( u(x, 0) \). The total loss guides the network to learn solutions that are physically consistent and satisfy the dynamics of the Burgers' equation.
 
