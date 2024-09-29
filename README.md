@@ -12,8 +12,8 @@ $$
 $$
 
 where:
-- $u(x, t)$ represents the solution of the PDE,
-- $\nu$ is the viscosity parameter.
+- \( u(x, t) \) represents the solution of the PDE,
+- \( \nu \) is the viscosity parameter.
 
 In this project, the equation is solved using a **Physics-Informed Neural Network** by incorporating the equation's constraints into the loss function. The model takes as input the spatial and temporal coordinates \((x, t)\) and outputs the solution \( u(x, t) \).
 
@@ -22,11 +22,9 @@ The custom loss function used in this project is designed to satisfy both the in
 
 The **physics loss** is derived from the residual of the Burgers' equation itself. During backpropagation, the network calculates the first and second derivatives of its predictions with respect to the input coordinates \((x, t)\) using **automatic differentiation**. The loss is then computed as the MSE between the left-hand side (LHS) and right-hand side (RHS) of the equation:
 
-$$
-\text{loss} = \text{loss\_initial\_condition} + \text{loss\_pde}
-$$
-
-
+\[
+\text{loss\_pde} = \text{MSE} \left( \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x}, \, \nu \frac{\partial^2 u}{\partial x^2} \right)
+\]
 
 The overall loss function is defined as the sum of the **initial condition loss** and the **PDE loss**:
 
