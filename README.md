@@ -29,7 +29,8 @@ $$\text{Loss}_{\text{pde}} = \text{MSE} \left( \frac{\partial u}{\partial t} + u
 The overall loss function is defined as the sum of the **initial condition loss** and the **PDE loss**:
 
 
-$$\text{Loss} = \text{Loss}_{\text{data}} + \text{Loss}_{\text{pde}}$$
+$$\text{Loss} = \text{Loss}_{\text{data}} + \text{Loss}_{\text{PDE}}$$
+
 
 
 This ensures that the network not only fits the data but also respects the physical law encoded in the PDE. The initial condition loss is calculated as the MSE between the model's prediction and the initial state $$u(x, 0)$$. The total loss guides the network to learn solutions that are physically consistent and satisfy the dynamics of the Burgers' equation.
